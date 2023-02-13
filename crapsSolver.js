@@ -24,7 +24,14 @@
 // console.log(die1Array[random]);
 // console.log(die2Array[random]);
 
-onst die1 = [1, 2, 3, 4, 5, 6];
+
+/*
+ For establishing a point, maybe create pointSet === false. if rollTotal = [4,5,6,8,9,10], point = rollTotal. change pointSet to true. 
+if 7 rolls while pointSet is true, it's '7 out' and the game resets. if 7 rolls while pointSet is false, it's a 'frontline winner'
+and the game continues, looking for a rollTotal that is in the array.
+*/
+
+const die1 = [1, 2, 3, 4, 5, 6];
 const die2 = [1, 2, 3, 4, 5, 6];
 
 function getRandomInt(max) {
@@ -53,15 +60,20 @@ console.log(rollCombo);
 if (rollTotal === 7){
     console.log(rollCombo);
     console.log('OUT SEVEN');
-} else if (rollTotal === 4){
+}
+if (rollTotal === 4){
     if (roll1 === roll2 && rollTotal === 4){
-                console.log('4 Hard 4! Put on your tutu!');
-            } else {
-                console.log('4 easy 4 Lil Joe says hello!');
+            console.log('4 Hard 4! Put on your tutu!');
+        } else {
+            console.log('4 easy 4 Lil Joe says hello!');
             }
-        } else if (rollTotal === 5){
+        }
+if (rollTotal === 5){
             console.log('5 No field 5! The 5 finger discount- free ninety-nine');
         }
+
+
+//place bets 6&8
 
 let betSixOrEight = ''
 let placeSixOrEight = ((betSixOrEight / 6) * 7);
