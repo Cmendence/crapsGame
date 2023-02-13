@@ -1,7 +1,7 @@
 //rolling two 6 sided dice. pulling 1 number from each array
 
-die1Array = [1, 2, 3, 4, 5, 6];
-die2Array = [1, 2, 3, 4, 5, 6];
+// die1Array = [1, 2, 3, 4, 5, 6];
+// die2Array = [1, 2, 3, 4, 5, 6];
 
 
 // rollResult = die1 + die2;
@@ -24,7 +24,44 @@ die2Array = [1, 2, 3, 4, 5, 6];
 // console.log(die1Array[random]);
 // console.log(die2Array[random]);
 
+onst die1 = [1, 2, 3, 4, 5, 6];
+const die2 = [1, 2, 3, 4, 5, 6];
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+const roll1 = die1[getRandomInt(die1.length)];
+const roll2 = die2[getRandomInt(die2.length)];
+
+console.log("Roll 1:", roll1);
+console.log("Roll 2:", roll2);
+
+
+console.log(`${roll1}, ${roll2}`);
+
+rollTotal = (roll1 + roll2);
+
+rollCombo = (`${roll1}, ${roll2}`);
+
+console.log(rollCombo);
+
+
+//rolls, stick calls, check for hardways
+
+
+if (rollTotal === 7){
+    console.log(rollCombo);
+    console.log('OUT SEVEN');
+} else if (rollTotal === 4){
+    if (roll1 === roll2 && rollTotal === 4){
+                console.log('4 Hard 4! Put on your tutu!');
+            } else {
+                console.log('4 easy 4 Lil Joe says hello!');
+            }
+        } else if (rollTotal === 5){
+            console.log('5 No field 5! The 5 finger discount- free ninety-nine');
+        }
 
 let betSixOrEight = ''
 let placeSixOrEight = ((betSixOrEight / 6) * 7);
@@ -60,4 +97,6 @@ if (bet >= 5 && bet % 5 === 0){
 }
 
 let fieldArray = [2, 3, 4, 9, 10, 11, 12];
+
+
 
