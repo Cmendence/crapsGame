@@ -1,1 +1,1 @@
-ECHO is on.
+Welcome to my repo! crapsSolver.js is a work in progress to solve for place bets on the 4, 5, 6, 8, 9, and 10. Currently it can take a bet amount and tell you wether or not it's proper, and if proper, can tell you the payout.
