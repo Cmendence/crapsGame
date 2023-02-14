@@ -54,13 +54,33 @@ rollCombo = (`${roll1}, ${roll2}`);
 console.log(rollCombo);
 
 
-//rolls, stick calls, check for hardways
+//trying to figure out how to set the point and call winner
+
+let point = '';
+let pointSet = false
+let pointNumbers = [4, 5, 6, 8, 9, 10]
 
 
-if (rollTotal === 7){
+if (rollTotal === 7 && pointSet === false){
     console.log(rollCombo);
-    console.log('OUT SEVEN');
+    console.log('SEVEN WINNER');
+} else if (rollTotal === 7 && pointSet === true){
+    pointSet = !pointSet
+    console.log('SEVEN OUT SEVEN')
 }
+
+if (pointNumbers.includes(rollTotal)){
+    point = rollTotal
+    pointSet = true
+    console.log(`${rollTotal}'s the point! Put the puck on the ${rollTotal}`)
+}
+
+if (point === rollTotal && pointSet === true){
+    console.log(`WINNER ${point} ON THE FRONT LINE`);
+}
+
+// stick calls, check for hardways
+
 if (rollTotal === 4){
     if (roll1 === roll2 && rollTotal === 4){
             console.log('4 Hard 4! Put on your tutu!');
@@ -75,7 +95,7 @@ if (rollTotal === 5){
 
 //place bets 6&8
 
-let betSixOrEight = ''
+let betSixOrEight = 12
 let placeSixOrEight = ((betSixOrEight / 6) * 7);
 
 if (betSixOrEight >=6 && betSixOrEight % 6 === 0){
@@ -86,23 +106,26 @@ if (betSixOrEight >=6 && betSixOrEight % 6 === 0){
 
 // for 5 & 9
 
-let placeFiveOrNine = ((bet / 5) * 7);
+
+let betFiveOrNine = 10
+let placeFiveOrNine = ((betFiveOrNine / 5) * 7);
 
 
-if (bet >=5 && bet % 5 === 0){
-    console.log(`That's a bet! ${bet} pays ${placeFiveOrNine}`);
+if (betFiveOrNine >=5 && betFiveOrNine % 5 === 0){
+    console.log(`That's a bet! ${betFiveOrNine} pays ${placeFiveOrNine}`);
 } else {
     console.log('No bet! not a proper amount!');
 }
 
 // for 4 & 10
 
-let placeFourOrTen = ((bet / 5)* 9);
+let betFourOrTen = 20
+let placeFourOrTen = ((betFourOrTen / 5)* 9);
 
-if (bet >= 5 && bet % 5 === 0){
-    console.log(`That's a bet! ${bet} pays ${placeFourOrTen}`);
-    if (bet >=20){
-        console.log(`You should buy it! ${bet} would have paid ${bet * 2}!`);
+if (betFourOrTen >= 5 && betFourOrTen % 5 === 0){
+    console.log(`That's a bet! ${betFourOrTen} pays ${placeFourOrTen}`);
+    if (betFourOrTen >=20){
+        console.log(`You should buy it! ${betFourOrTen} would have paid ${betFourOrTen * 2}!`);
     }
 } else {
     console.log('No bet! not a proper amount!');
