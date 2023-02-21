@@ -93,45 +93,64 @@ if (rollTotal === 5){
         }
 
 
-//place bets 6&8
-
-let betSixOrEight = 12
-let placeSixOrEight = ((betSixOrEight / 6) * 7);
-
-if (betSixOrEight >=6 && betSixOrEight % 6 === 0){
-    console.log(`That's a bet! ${betSixOrEight} pays ${placeSixOrEight}`);
-} else {
-    console.log('No bet! not a proper amount!');
-}
-
-// for 5 & 9
-
-
-let betFiveOrNine = 10
-let placeFiveOrNine = ((betFiveOrNine / 5) * 7);
-
-
-if (betFiveOrNine >=5 && betFiveOrNine % 5 === 0){
-    console.log(`That's a bet! ${betFiveOrNine} pays ${placeFiveOrNine}`);
-} else {
-    console.log('No bet! not a proper amount!');
-}
-
-// for 4 & 10
-
-let betFourOrTen = 20
-let placeFourOrTen = ((betFourOrTen / 5)* 9);
-
-if (betFourOrTen >= 5 && betFourOrTen % 5 === 0){
-    console.log(`That's a bet! ${betFourOrTen} pays ${placeFourOrTen}`);
-    if (betFourOrTen >=20){
-        console.log(`You should buy it! ${betFourOrTen} would have paid ${betFourOrTen * 2}!`);
+const placeNums = [4,5,6,8,9,10];
+function placeBet(bet, num){
+    let payout = 0
+    if (bet >=6 && bet % 6 === 0 && (num === 6 || num === 8)) {
+        payout = (bet / 6) * 7;
+        return `That's a bet! ${bet} on the ${num} pays ${payout}`;
+    } else if (bet >=5 && bet % 5 === 0 && (num === 5 || num === 9)) {
+        payout = (bet / 5) * 7;
+        return `That's a bet! ${bet} on the ${num} pays ${payout}`;
+    } else if (bet >=5 && bet % 5 === 0 && (num === 4 || num === 10)) {
+        payout = (bet / 5) * 9
+        return `That's a bet! ${bet} on the ${num} pays ${payout}`;
+    } else if(!placeNums.includes(num)){
+        return 'Invalid Number'
+    } else {
+        return 'No bet! Not a proper amount!';
+    } 
+        
     }
-} else {
-    console.log('No bet! not a proper amount!');
+
+
+function placeBet(bet, num){
+    if (bet >=6 && bet % 6 === 0 && num === 6) {
+        return `That's a bet! ${bet} on the ${num} pays ${(bet / 6) * 7}`;
+    } else if (bet >=6 && bet % 6 === 0 && num === 8) {
+        return `That's a bet! ${bet} on the ${num} pays ${(bet / 6) * 7}`;
+    } else if (bet >=5 && bet % 5 === 0 && num === 5) {
+        return `That's a bet >=5 & bet! ${bet} on the ${num} pays ${(bet / 5) * 7}`;
+    } else if (bet >=5 && bet % 5 === 0 && num === 9) {
+        return `That's a bet >=5 & bet! ${bet} on the ${num} pays ${(bet / 5) * 7}`;
+    } else if (bet >=5 && bet % 5 === 0 && num === 4) {
+        return `That's a bet! ${bet} on the ${num} pays ${(bet / 5) * 9}`;
+    } else if (bet >=5 && bet % 5 === 0 && num === 10) {
+        return `That's a bet! ${bet} on the ${num} pays ${(bet / 5) * 9}`; 
+    } else {
+        return 'No bet! Not a proper amount!';
+    }
 }
 
-let fieldArray = [2, 3, 4, 9, 10, 11, 12];
+console.log(placeBet(30,10));
 
 
+let fieldArr = [2, 3, 4, 9, 10, 11, 12];
+
+if (fieldArr.includes(rollTotal)){
+    if (rollTotal === 2 || rollTotal === 12){
+        return `${rollTotal}! crap ${rollTotal} Double in the bubble! ${bet} `
+    }
+}
+
+//used in week 3 assignment
+function placeSixOrEight(bet){
+    if (bet >=6 && bet % 6 === 0){
+        return `That's a bet! ${bet} pays ${(bet / 6) * 7}`;
+    } else {
+        return 'No bet! Improper amount!'
+    }
+}
+
+console.log(placeSixOrEight());
 
