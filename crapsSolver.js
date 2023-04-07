@@ -59,6 +59,9 @@ console.log(rollCombo);
 let point = '';
 let pointSet = false
 let pointNumbers = [4, 5, 6, 8, 9, 10]
+let num;
+let payout = 0;
+let balance = 0;
 
 
 if (rollTotal === 7 && pointSet === false){
@@ -132,16 +135,111 @@ function placeBet(bet, num){
     }
 }
 
-console.log(placeBet(30,10));
 
+function isSixOrEightValid(bet) {
+    console.log(`isSixOrEightValid checked bet value:${bet} for validity`)
+    if (bet >= 6, bet % 6 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+    }
+
+    function areOutsideNumbersValid(bet, num) {
+        console.log(`areOutsideNumbersValid checked for proper bet: ${bet} on the numbers 4,5,9,10`);
+        if (bet >= 5, bet % 5 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+function crapsPlaceBets(bet, num){
+
+    switch(num){
+        case 4:
+            if(areOutsideNumbersValid(bet)){
+              return placeBetFourTenPayoff(bet);
+            } else {
+                return closestProperOutsidePlaceBet(bet);
+            }
+        case 5:
+            if(areOutsideNumbersValid(bet)) {
+                return placeBetFiveNinePayoff(bet);
+            } else {
+                return closestProperOutsidePlaceBet(bet);
+            }
+        case 6:
+            if(isSixOrEightValid(bet)) {
+                return placeBetSixEightPayoff(bet);
+            } else {
+                return closestProperSixEightPlaceBet(bet)
+            }
+        case 8:
+            if(isSixOrEightValid(bet)) {
+                return placeBetSixEightPayoff(bet);
+            } else {
+                return closestProperSixEightPlaceBet(bet)
+            }
+        case 9:
+            if(areOutsideNumbersValid(bet)) {
+                return placeBetFiveNinePayoff(bet);
+            } else {
+                return closestProperOutsidePlaceBet(bet);
+            }
+        case 10:
+            if(areOutsideNumbersValid(bet)){
+               return placeBetFourTenPayoff(bet);
+            } else {
+                return closestProperOutsidePlaceBet(bet);
+            }
+        default: 
+            return 'Invalid Number'
+    }
+    }
+
+    
+
+function placeBetFourTenPayoff(bet) {
+    let payoff = ((bet / 5) * 9);
+    console.log(`paying bet: $${bet} on the 4 or 10 amount: $${payoff}`);
+    return payoff;
+}
+
+function placeBetFiveNinePayoff(bet) {
+    let payoff = ((bet / 5) * 7);
+    console.log(`paying bet: $${bet} on the 5 or 9 amount: $${payoff}`);
+    return payoff;
+}
+
+function placeBetSixEightPayoff(bet) {
+    let payoff = ((bet / 6) * 7);
+    console.log(`paying bet: $${bet} on the 6 or 8 amount: $${payoff}`);
+    return payoff;
+}
+
+function closestProperOutsidePlaceBet(bet) {
+    let closestBet = Math.floor(bet / 5)* 5;
+    console.log(`${bet} is not proper for outside numbers, would you like ${closestBet} instead?`)
+    return closestBet;
+}
+
+function closestProperSixEightPlaceBet(bet) {
+    let closestBet = Math.floor(bet / 6)*6
+    console.log(`${bet} is not proper for 6 or 8, would you like ${closestBet} instead?`)
+    return closestBet;
+
+}
 
 let fieldArr = [2, 3, 4, 9, 10, 11, 12];
 
-if (fieldArr.includes(rollTotal)){
-    if (rollTotal === 2 || rollTotal === 12){
-        return `${rollTotal}! crap ${rollTotal} Double in the bubble! ${bet} `
-    }
-}
+// if (fieldArr.includes(rollTotal)){
+//     if (rollTotal === 2 || rollTotal === 12){
+//         return `${rollTotal}! crap ${rollTotal} Double in the bubble! ${bet} `
+//     }
+// }
 
 //used in week 3 assignment
 function placeSixOrEight(bet){
@@ -152,5 +250,4 @@ function placeSixOrEight(bet){
     }
 }
 
-console.log(placeSixOrEight());
-
+crapsPlaceBets(270, 23)

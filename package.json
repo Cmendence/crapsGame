@@ -1,0 +1,15 @@
+{
+  "name": "crapscode",
+  "version": "1.0.0",
+  "description": "Welcome to my repo! crapsSolver.js is a work in progress to solve for place bets on the 4, 5, 6, 8, 9, and 10. Currently it can take a bet amount and tell you wether or not it's proper, and if proper, can tell you the payout.",
+  "main": "crapsSolver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.4"
+  }
+}
