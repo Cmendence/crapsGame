@@ -30,28 +30,58 @@
 if 7 rolls while pointSet is true, it's '7 out' and the game resets. if 7 rolls while pointSet is false, it's a 'frontline winner'
 and the game continues, looking for a rollTotal that is in the array.
 */
-
+id = 0;
 const die1 = [1, 2, 3, 4, 5, 6];
 const die2 = [1, 2, 3, 4, 5, 6];
 
 function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+  return Math.floor(Math.random() * Math.floor(max)) + 1;
 }
 
-const roll1 = die1[getRandomInt(die1.length)];
-const roll2 = die2[getRandomInt(die2.length)];
+function thisId(id) {
+    console.log(`thisId function is tied to id:${id}`);
+   return document.getElementById(id);
+}
 
-console.log("Roll 1:", roll1);
-console.log("Roll 2:", roll2);
+function cellHTML(element, index, content) {
+    console.log(`cellHTML added ${content} to cell ${index}`);
+   return element.insertCell(index).innerHTML = content;
+}
+let rollOne; 
+let rollTwo; 
+
+thisId('roll-btn').addEventListener('click', () => {
+    console.log('button is working');
+    let table = thisId('results')
+    let row = table.insertRow(-1);
+    row.setAttribute('id', `item-${id}`);
+    cellHTML(row, 0, rollOne = getRandomInt(6));
+    cellHTML(row, 1, rollTwo = getRandomInt(6));
+    cellHTML(row, 2, rollOne + rollTwo);
+    id++
+})
+
+thisId('list').row[1].cell[0].value;
 
 
-console.log(`${roll1}, ${roll2}`);
+function rollTotal(roll1, roll2){
 
-rollTotal = (roll1 + roll2);
+}
 
-rollCombo = (`${roll1}, ${roll2}`);
+// const roll1 = die1[getRandomInt(die1.length)];
+// const roll2 = die2[getRandomInt(die2.length)];
 
-console.log(rollCombo);
+// console.log("Roll 1:", roll1);
+// console.log("Roll 2:", roll2);
+
+
+// console.log(`${roll1}, ${roll2}`);
+
+// rollTotal = (roll1 + roll2);
+
+// rollCombo = (`${roll1}, ${roll2}`);
+
+// console.log(rollCombo);
 
 
 //trying to figure out how to set the point and call winner
@@ -145,7 +175,7 @@ function isSixOrEightValid(bet) {
     }
     }
 
-    function areOutsideNumbersValid(bet, num) {
+    function areOutsideNumbersValid(bet) {
         console.log(`areOutsideNumbersValid checked for proper bet: ${bet} on the numbers 4,5,9,10`);
         if (bet >= 5, bet % 5 === 0) {
             return true;
@@ -242,12 +272,10 @@ let fieldArr = [2, 3, 4, 9, 10, 11, 12];
 // }
 
 //used in week 3 assignment
-function placeSixOrEight(bet){
-    if (bet >=6 && bet % 6 === 0){
-        return `That's a bet! ${bet} pays ${(bet / 6) * 7}`;
-    } else {
-        return 'No bet! Improper amount!'
-    }
-}
-
-crapsPlaceBets(270, 23)
+// function placeSixOrEight(bet){
+//     if (bet >=6 && bet % 6 === 0){
+//         return `That's a bet! ${bet} pays ${(bet / 6) * 7}`;
+//     } else {
+//         return 'No bet! Improper amount!'
+//     }
+// }
