@@ -61,8 +61,6 @@ thisId('roll-btn').addEventListener('click', () => {
     id++
 })
 
-thisId('list').row[1].cell[0].value;
-
 
 function rollTotal(roll1, roll2){
 
@@ -88,7 +86,7 @@ function rollTotal(roll1, roll2){
 
 let point = '';
 let pointSet = false
-let pointNumbers = [4, 5, 6, 8, 9, 10]
+const pointNumbers = [4, 5, 6, 8, 9, 10]
 let num;
 let payout = 0;
 let balance = 0;
@@ -126,7 +124,7 @@ if (rollTotal === 5){
         }
 
 
-const placeNums = [4,5,6,8,9,10];
+
 function placeBet(bet, num){
     let payout = 0
     if (bet >=6 && bet % 6 === 0 && (num === 6 || num === 8)) {
@@ -184,7 +182,13 @@ function isSixOrEightValid(bet) {
         }
     }
 
-
+function isNumValid(num) {
+    if(pointNumbers.includes(num)){
+        return true;
+    }  else {
+        return false;
+    }
+}
 
 function crapsPlaceBets(bet, num){
 
