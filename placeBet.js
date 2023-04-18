@@ -171,33 +171,39 @@ function isFieldValid(inputId, inputErrorId) {
 
 
  function clearFields(){
-    document.getElementById('payoff-four').textContent='';
-    document.getElementById('payoff-five').textContent='';
-    document.getElementById('payoff-six').textContent='';
-    document.getElementById('payoff-eight').textContent='';
-    document.getElementById('payoff-nine').textContent='';
-    document.getElementById('payoff-ten').textContent='';
+let clearTags = document.querySelectorAll('.clear')
 
-    document.getElementById('four-invalid').textContent='';
-    document.getElementById('five-invalid').textContent='';
-    document.getElementById('six-invalid').textContent='';
-    document.getElementById('eight-invalid').textContent='';
-    document.getElementById('nine-invalid').textContent='';
-    document.getElementById('ten-invalid').textContent='';
+for(tag of clearTags){
+    tag.innerHTML=''
 
-    document.getElementById('empty-field-four').textContent='';
-    document.getElementById('empty-field-five').textContent='';
-    document.getElementById('empty-field-six').textContent='';
-    document.getElementById('empty-field-eight').textContent='';
-    document.getElementById('empty-field-nine').textContent='';
-    document.getElementById('empty-field-ten').textContent='';
+}
+    // document.getElementById('payoff-four').textContent='';
+    // document.getElementById('payoff-five').textContent='';
+    // document.getElementById('payoff-six').textContent='';
+    // document.getElementById('payoff-eight').textContent='';
+    // document.getElementById('payoff-nine').textContent='';
+    // document.getElementById('payoff-ten').textContent='';
+
+    // document.getElementById('four-invalid').textContent='';
+    // document.getElementById('five-invalid').textContent='';
+    // document.getElementById('six-invalid').textContent='';
+    // document.getElementById('eight-invalid').textContent='';
+    // document.getElementById('nine-invalid').textContent='';
+    // document.getElementById('ten-invalid').textContent='';
+
+    // document.getElementById('empty-field-four').textContent='';
+    // document.getElementById('empty-field-five').textContent='';
+    // document.getElementById('empty-field-six').textContent='';
+    // document.getElementById('empty-field-eight').textContent='';
+    // document.getElementById('empty-field-nine').textContent='';
+    // document.getElementById('empty-field-ten').textContent='';
     
-    document.getElementById('place-four').classList.remove('is-invalid');
-    document.getElementById('place-five').classList.remove('is-invalid');
-    document.getElementById('place-six').classList.remove('is-invalid');
-    document.getElementById('place-eight').classList.remove('is-invalid');
-    document.getElementById('place-nine').classList.remove('is-invalid');
-    document.getElementById('place-ten').classList.remove('is-invalid');
+    // document.getElementById('place-four').classList.remove('is-invalid');
+    // document.getElementById('place-five').classList.remove('is-invalid');
+    // document.getElementById('place-six').classList.remove('is-invalid');
+    // document.getElementById('place-eight').classList.remove('is-invalid');
+    // document.getElementById('place-nine').classList.remove('is-invalid');
+    // document.getElementById('place-ten').classList.remove('is-invalid');
  }
 
 
